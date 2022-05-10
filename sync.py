@@ -21,18 +21,24 @@ def loop():
         
         print("")
         print("Updating")
-        
-        bpy.ops.object.select_all(action='DESELECT')
-        
+
         try:
             bpy.ops.object.mode_set(mode='OBJECT')
         except:
             pass
-
+        
+        context = bpy.context
+        name = "Sketchup"
+        scene = context.scene
+        coll = bpy.data.collections.get(name)
+        if coll is None:
+            coll = bpy.data.collections.new(name)
+        if not scene.user_of_id(coll):
+            context.collection.children.link(coll)
+            
         for obj in bpy.data.collections['Sketchup'].all_objects:
-                    obj.select_set(True)
-
-        bpy.ops.object.delete(use_global=False, confirm=False)
+                            obj.select_set(True)
+                            bpy.ops.object.delete(use_global=False, confirm=False)
 
         def recurLayerCollection(layerColl, collName):
             found = None

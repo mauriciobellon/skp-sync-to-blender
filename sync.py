@@ -21,7 +21,9 @@ def loop():
         
         print("")
         print("Updating")
-
+        
+        bpy.ops.object.select_all(action='DESELECT')
+        
         try:
             bpy.ops.object.mode_set(mode='OBJECT')
         except:

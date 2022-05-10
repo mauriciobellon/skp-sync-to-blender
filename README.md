@@ -17,7 +17,8 @@ Nunca coloque nada dentro da Collection "Sketchup" pois a cada atualização ser
 
 ## TODO
 
-- Documentar o Código.
+- Refatorar o Código.
 - Implementar este script como Addon para o Blender.
 - Implementar um Plugin para o Sketchup que a partir de um botão automaticamente cria o arquivo blender se necessário, abre o blender e importa o SKP.
-- Encontrar uma solução usando SDK do Sketchup para fazer exportações de geometria realtime. (Vai dar trabalho)
+- Encontrar uma solução usando SDK do Sketchup para fazer exportações de geometria realtime. (Vai dar trabalho).
+- Documentação.

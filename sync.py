@@ -40,6 +40,8 @@ def loop():
         if not bpy.context.scene.user_of_id(coll):
             bpy.context.collection.children.link(coll)
 
+        bpy.ops.outliner.orphans_purge()
+        
         def recurLayerCollection(layerColl, collName):
             found = None
             if (layerColl.name == collName):
@@ -93,5 +95,7 @@ def loop():
         l = skp_file_pathlib.stat().st_mtime_ns
         return 1.0
 
-
-bpy.app.timers.register(loop)
+try:
+    bpy.app.timers.unregister(loop)
+except:
+    bpy.app.timers.register(loop)
